@@ -7,6 +7,8 @@ public class StateClient : IConsumer
     public const string ATTACK = "Attack";
     public const string SLEEP = "Sleep";
     public const string SWIM = "Swim";
+    public const string EAT = "Eat";
+    public const string JUMP = "Jump";
 
     private string state = WALK;
 
@@ -20,9 +22,50 @@ public class StateClient : IConsumer
         doAction(ATTACK);
         doAction(SWIM);
         doAction(WALK);
+        doAction(EAT);
+        doAction(JUMP);
 
 
-        // TODO Agregar menu de opciones para poder cambiar entre estados
+
+        int opcion; 
+
+        Console.WriteLine("1. Walk");
+        Console.WriteLine("2. Attack");
+        Console.WriteLine("3. Sleep");
+        Console.WriteLine("4. Swim");
+        Console.WriteLine("5. Eat");
+        Console.WriteLine("6. Jump");
+        Console.WriteLine("7. Jump");
+        Console.WriteLine("SELECCIONE UN ESTADO: ");
+        opcion = int.Parse(Console.ReadLine());
+
+        switch (opcion)
+        {
+            case 1:
+                doAction(WALK);
+                break;
+            case 2:
+                doAction(ATTACK);
+                break;
+            case 3:
+                doAction(SLEEP);
+                break;
+            case 4:
+                doAction(SWIM);
+                break;
+            case 5:
+                doAction(EAT);
+                break;
+            case 6:
+                doAction(JUMP);
+                break;
+            case 7:
+                Console.WriteLine("Adios");
+                break;
+            default:
+                Console.WriteLine("Seleccione un numero entre 1-7");
+                break;
+        }
 
     }
 
@@ -51,6 +94,7 @@ public class StateClient : IConsumer
                 {
                     Console.WriteLine($"No puedes cambiar estado de {state} a {action}");
                 }
+                else if(state==)
                 else
                 {
                     Console.WriteLine($"Cambio de estado de {state} -> {action}");
@@ -59,6 +103,17 @@ public class StateClient : IConsumer
                 break;
             case SWIM:
                 if (state == SLEEP || state == ATTACK)
+                {
+                    Console.WriteLine($"No puedes cambiar estado de {state} a {action}");
+                }
+                else
+                {
+                    Console.WriteLine($"Cambio de estado de {state} -> {action}");
+                    state = action;
+                }
+                break;
+            case EAT:
+                if (state == SLEEP || state == SWIM)
                 {
                     Console.WriteLine($"No puedes cambiar estado de {state} a {action}");
                 }

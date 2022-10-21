@@ -4,11 +4,11 @@ public class Ejercicio1Cliente : IConsumer
     public void runClient()
     {
 
-       GameUtils utils = new GameUtils();
+        GameUtils utils = new GameUtils.GetInstance();
 
-       utils.calcDamage();
-       utils.calcDistance();
-       utils.calcDefence();
+        utils.calcDamage();
+        utils.calcDistance();
+        utils.calcDefence();
 
     }
 }

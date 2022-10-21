@@ -11,6 +11,7 @@ public class StrategyClient : IConsumer
 
         SimplexNoise();
         PerlinNoise();
+        CubicNoise();
 
 
         // TODO Agregar menu de opciones para poder cambiar entre diferentes algoritmos
@@ -23,6 +24,10 @@ public class StrategyClient : IConsumer
 
     private void PerlinNoise(){
         Console.WriteLine("Generando terreno con PerlinNoise");
+    }
+
+    private void CubicNoise(){
+        Console.WriteLine("Generando terreno con CubicNoise");
     }
 
 }
